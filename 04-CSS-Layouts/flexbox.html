@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox</title>
+    <style>
+      .el--1 {
+        background-color: blueviolet;
+      }
+      .el--2 {
+        background-color: orangered;
+      }
+      .el--3 {
+        background-color: green;
+        height: 150px;
+      }
+      .el--4 {
+        background-color: goldenrod;
+      }
+      .el--5 {
+        background-color: palevioletred;
+      }
+      .el--6 {
+        background-color: steelblue;
+      }
+      .el--7 {
+        background-color: yellow;
+      }
+      .el--8 {
+        background-color: crimson;
+      }
+
+      .container {
+        /* STARTER */
+        font-family: sans-serif;
+        background-color: #ddd;
+        font-size: 32px;
+        margin: 40px;
+
+        /* FLEXBOX */
+        display: flex;
+        /* 控制垂直方向 */
+        align-items: center;
+        /* 控制水平方向 */
+        justify-content: flex-start;
+        /* 在各对象之间加入30px的gap，比下面的margin-right更常用 */
+        gap: 10px;
+      }
+
+      .el {
+        /* 
+        DEFAULTS:
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto; */
+        /* 将所有像素宽度设置为200px */
+        /* flex-basis: 200px; */
+        /* 忽略背景，不再把元素收缩在背景container内 */
+        /* flex-shrink: 0; */
+        /* 各元素被拉到平均宽度滩在container内 */
+        /* flex-grow: 1; */
+        /* 可以直接用flex代替flex-grow，以下内容与 flex-grow: 0;是等价的*/
+        flex: 1;
+        /* 进一步可以将flex完整写为如下格式，三个参数分别代表flex-grow flex-shrink flex-basis  */
+        /* flex: 0 0 200px; */
+      }
+
+      /* 对其某一项，用self */
+      .el--1 {
+        align-self: flex-start;
+        /* 单独在这设置flex-grow为2会让它比其他元素宽度长一倍 */
+        /* flex-grow: 2; */
+      }
+
+      /* 默认的元素order都是0，改了就会变更前后位置 */
+      .el--5 {
+        align-self: stretch;
+        order: 1;
+      }
+
+      .el--6 {
+        order: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="el el--1">HTML</div>
+      <div class="el el--2">and</div>
+      <div class="el el--3">CSS</div>
+      <div class="el el--4">are</div>
+      <div class="el el--5">amazing</div>
+      <!-- <div class="el el--6">languages</div> -->
+      <!-- <div class="el el--7">to</div>
+      <div class="el el--8">learn</div> -->
+    </div>
+  </body>
+</html>
