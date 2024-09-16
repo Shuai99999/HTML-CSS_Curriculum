@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Layout</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        color: #343a40;
+        font-size: 24px;
+        /* 还是利用这个vh，100就代表100%视口高度 */
+        height: 100vh;
+        text-align: center;
+        font-weight: bold;
+
+        display: grid;
+        grid-template-columns: 80px 400px 1fr 250px;
+        grid-template-rows: 80px 1fr;
+      }
+
+      nav,
+      section,
+      main,
+      aside {
+        /* 让文字有个上边距 */
+        padding-top: 24px;
+      }
+
+      nav {
+        background-color: #343a40;
+        color: white;
+        grid-row: 1 / -1;
+      }
+
+      menu {
+        background-color: #7048e8;
+        color: #fff;
+        grid-column: 2 / -1;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0 40px;
+      }
+
+      button {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #5f3dc4;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        padding: 8px 12px;
+      }
+
+      /* 这个就是trash按钮 */
+      button:last-child {
+        background-color: red;
+        /* 小技巧，这样就让trash总是靠右了 */
+        margin-left: auto;
+      }
+
+      section {
+        background-color: #e9ecef;
+        padding: 40px;
+
+        /* 这个是仅让section有滚动功能，这个滚动不影响main等其他部分 */
+        /* overflow: scroll; */
+        /* 用hidden就是把滚动条视觉效果隐藏了 */
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .email {
+        background-color: #adb5db;
+        height: 96px;
+        /* 因为email使用了flexbox，默认对象是允许被shrink的，再配合上面的overflow: scroll;
+        email就被shrink压缩了
+        因此这里需要手动把shrink再设置回0，不允许压缩 */
+        flex-shrink: 0;
+
+        /* 利用flex让文字居中，因为text-align只管左右居中
+        而flex是可以把文字视为item来处理 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      aside {
+        background-color: #e9ecef;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>Nav</nav>
+    <menu>
+      <button>New</button>
+      <button>Reply</button>
+      <button>Forward</button>
+      <button>Mark unread</button>
+      <button>Trash</button>
+    </menu>
+
+    <section>
+      <div class="email">Email 1</div>
+      <div class="email">Email 2</div>
+      <div class="email">Email 3</div>
+      <div class="email">Email 4</div>
+      <div class="email">Email 5</div>
+      <div class="email">Email 6</div>
+      <div class="email">Email 7</div>
+      <div class="email">Email 8</div>
+      <div class="email">Email 9</div>
+      <div class="email">Email 10</div>
+    </section>
+    <main>Email view</main>
+    <aside>Additional info</aside>
+  </body>
+</html>
