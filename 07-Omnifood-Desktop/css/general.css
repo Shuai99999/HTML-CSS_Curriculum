@@ -53,6 +53,10 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .grid--center-v {
   align-items: center;
 }
@@ -93,6 +97,7 @@ body {
   letter-spacing: 0.75px;
 }
 
+.btn,
 .btn:link,
 .btn:visited {
   display: inline-block;
@@ -108,6 +113,10 @@ body {
   /* 仅变化背景色 */
   /* transition: background-color 0.3s; */
   transition: all 0.3s;
+
+  /* Only necessary for .btn */
+  border: none;
+  cursor: pointer;
 }
 
 .btn--full:link,
@@ -136,6 +145,18 @@ body {
 
   /* Trickto add border inside  */
   box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
 }
 
 .link:link,
@@ -174,6 +195,16 @@ body {
   width: 3rem;
   height: 3rem;
   color: #e67e22;
+}
+
+/* 给所有元素加个聚焦的伪类，鼠标或tab选中谁都有个提示 */
+*:focus {
+  outline: none;
+  /* 这个效果有点中二 */
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+  /* 正常应该用下面这个效果 */
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
 }
 
 /* HELPER/SETTINGS CLASSES */
