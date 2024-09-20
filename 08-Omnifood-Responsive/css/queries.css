@@ -1,0 +1,74 @@
+/* 
+@media (max-width: 600px) {
+  .section-hero {
+    border: 20px dashed blue;
+    background-color: blue;
+  }
+}
+
+ 如果这条在上面，小于600时背景色是蓝色，现在这条在下，小于600时背景色也是橘色，因为有冲突时只应用最下面的一条 
+@media (max-width: 1200px) {
+  .section-hero {
+    background-color: orangered;
+  }
+} 
+*/
+
+/************************/
+/* BELOW 1344px (Smaller Desktops)*/
+/* 因为某些浏览器用rem有bug，这里又引入了一个单位，em，1em就是16px，86*16=1344 */
+/************************/
+
+@media (max-width: 84em) {
+  .hero {
+    max-width: 120rem;
+  }
+
+  .heading-primary {
+    font-size: 4.4rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/************************/
+/* BELOW 1200px (Landscape Tablets)*/
+/************************/
+
+@media (max-width: 75em) {
+  /* 这里直接修改rem大小了，算是个小技巧 */
+  html {
+    font-size: 56.25%;
+  }
+
+  .grid {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+
+  .header {
+    padding: 0 3.2rem;
+  }
+
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+
+  .hero {
+    gap: 4.8rem;
+  }
+
+  .testimonials-container {
+    padding: 9.6rem 3.2rem;
+  }
+}
