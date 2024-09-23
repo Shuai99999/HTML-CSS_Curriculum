@@ -3,6 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- meta中的content用于搜索引擎的搜索 -->
+    <meta
+      name="description"
+      content="Omnifood is an AI-powered food subscription that will make you eat healthy again, 365 days per year. It's tailored to your personal tastes and nutritional nedds."
+    />
+
+    <!-- pc专用favicon -->
+    <link rel="icon" href="img/favicon.png" />
+
+    <!-- 苹果专用favicon，像素是180x180，这个是固定的 -->
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+
+    <!-- 安卓专用favicon，像素有两个分别是192x192和512x512，详细配置写在这个manifest文件里 -->
+    <link rel="manifest" href="manifest.webmanifest" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,7 +28,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/queries.css" />
 
-    <title>Omifood</title>
+    <title>Omnifood &mdash; Never cook again</title>
   </head>
   <body>
     <!-- <header class="header nav-open"> -->
@@ -70,11 +85,17 @@
             </div>
           </div>
           <div class="hero-img-box">
-            <img
-              src="img/hero.png"
-              class="hero-img"
-              alt="Woman enjoying food, meals in storage container, and food bowls on a table"
-            />
+            <!-- 因为有的终端不支持webp图片，用这个方法可以让终端自己判断，能读取哪个就读取哪个 -->
+            <!-- 这样的话就要把img标签包在picture标签里 -->
+            <picture>
+              <source srcset="img/hero.webp" type="image/webp" />
+              <source srcset="img/hero-min.png" type="image/png" />
+              <img
+                src="img/hero.webp"
+                class="hero-img"
+                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+              />
+            </picture>
           </div>
         </div>
       </section>
